@@ -6,7 +6,7 @@
 ---
 
 - [Github对应仓库](https://github.com/EmmaLui/2019FALL_NFU_18INTERNET-NEWMEDIA_FINAL_PYTHON)
-- [第一个pythonanywhere的url(里面含5个下拉框)](http://emmalei0118.pythonanywhere.com/)
+- [第一个pythonanywhere的url(里面含5个下拉框)](http://emmalui0118.pythonanywhere.com/)
 - [第二个pythonanywhere的url(里面含3个下拉框)](http://emmalei0118.pythonanywhere.com/)
 
 ---
