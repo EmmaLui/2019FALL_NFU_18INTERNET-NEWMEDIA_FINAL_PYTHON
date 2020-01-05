@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <h1>促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系</h1>
+</head>
+<body>
+<form method="POST" action="/subpage">
+    <select name="the_region_selected">
+        {% for item in the_select_region %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+<p><input value='提交!' type='SUBMIT'></p>
+</form>
+{{ the_plot_all|safe}}
+{{ the_res|safe }}
+</body>
+</html>

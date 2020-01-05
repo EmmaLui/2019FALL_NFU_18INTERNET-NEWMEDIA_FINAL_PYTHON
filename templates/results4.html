@@ -1,0 +1,56 @@
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <h1>促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系</h1>
+</head>
+
+<body>
+    <form method="POST" action="/subpage">
+    <select name="the_region_selected">
+        {% for item in the_select_region %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+        </select>
+    <p><input value='提交!' type='SUBMIT'></p>
+    </form>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <script>
+        var data = {{ data|safe}}
+        var trace1 = {
+          x: data['data'][0]['x'],
+          y: data['data'][0]['y'],
+          name: data['data'][0]['name'],
+        };
+
+        var trace2 = {
+          x: data['data'][1]['x'],
+          y: data['data'][1]['y'],
+          name: data['data'][1]['name'],
+        };
+        var data = [trace1, trace2];
+        var layout = {'title': '近7年浙江省和天津市互联网普及率对比',
+            'xaxis': {'rangeselector': {'buttons': [{'count': 3,
+                                                     'label': '3年',
+                                                     'step': 'year',
+                                                     'stepmode': 'backward'},
+                                                    {'count': 5,
+                                                     'label': '5年',
+                                                     'step': 'year',
+                                                     'stepmode': 'backward'},
+                                                    {'count': 10,
+                                                     'label': '10年',
+                                                     'step': 'year',
+                                                     'stepmode': 'backward'},
+                                                    {'count': 20,
+                                                     'label': '20年',
+                                                     'step': 'year',
+                                                     'stepmode': 'backward'},
+                                                    {'step': 'all'}]},
+                      'rangeslider': {'bgcolor': '#F4FA58'},
+                      'title': '年份'},
+            'yaxis': {'title': '亿元'}};
+            {#var layout = data['layout'];#}
+        Plotly.newPlot('myDiv', data, layout);
+    </script>
+    {{ the_res|safe }}
+</body>
